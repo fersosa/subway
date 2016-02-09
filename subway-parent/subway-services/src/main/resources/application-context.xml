@@ -19,20 +19,11 @@
 		<context:include-filter type="regex"
 			expression="com.gl.subway.repository.*" />
 
-		<context:include-filter type="regex"
-			expression="com.gl.subway.mail.*" />
-
 	</context:component-scan>
 
 	<bean name="appUrl" class="java.lang.String">
 		<constructor-arg>
 			<jee:jndi-lookup jndi-name="java:comp/env/subway/url" />
-		</constructor-arg>
-	</bean>
-
-	<bean name="emailFrom" class="java.lang.String">
-		<constructor-arg>
-			<jee:jndi-lookup jndi-name="java:comp/env/mail/serverUrl" />
 		</constructor-arg>
 	</bean>
 

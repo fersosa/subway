@@ -1,4 +1,4 @@
-package com.gl.todolist.repository;
+package com.gl.subway.repository;
 
 public interface PedidoRepository {
 

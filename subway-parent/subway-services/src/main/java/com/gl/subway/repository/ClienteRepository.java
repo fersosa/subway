@@ -1,4 +1,4 @@
-package com.gl.todolist.repository;
+package com.gl.subway.repository;
 
 import com.gl.subway.domain.Cliente;
 
