@@ -1,7 +1,8 @@
 package com.gl.subway.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -23,7 +24,7 @@ public class Cliente extends AbstractIdentificable {
 	@Email
 	private String email;
 
-	@Transient
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Sucursal sucursalCercana;
 
 	public String getNombre() {

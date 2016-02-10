@@ -1,7 +1,8 @@
 package com.gl.subway.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -14,6 +15,23 @@ public class Ciudad extends AbstractIdentificable {
 
 	@NotEmpty
 	private String nombre;
-	@Transient
+
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Provincia provincia;
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
+	}
 }

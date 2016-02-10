@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -25,6 +26,7 @@ public class Producto extends AbstractIdentificable {
 	@NotNull
 	@Min(value = 0)
 	private BigDecimal precio;
-	@Transient
+
+	@OneToMany(mappedBy = "producto", fetch = FetchType.LAZY)
 	private List<Promocion> promociones;
 }
