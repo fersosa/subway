@@ -1,5 +1,7 @@
 package com.gl.subway.repository.jpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -13,10 +15,17 @@ public class JpaClienteRepository implements ClienteRepository {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public void saveUpdate(Cliente cliente) {
 		em.merge(cliente);
+	}
+
+	@Override
+	public List<Cliente> list() {
+		@SuppressWarnings("unchecked")
+		List<Cliente> result = em.createQuery("select o from Cliente o").getResultList();
+		return result;
 	}
 
 }

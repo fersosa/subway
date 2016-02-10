@@ -21,12 +21,6 @@
 
 	</context:component-scan>
 
-	<bean name="appUrl" class="java.lang.String">
-		<constructor-arg>
-			<jee:jndi-lookup jndi-name="java:comp/env/subway/url" />
-		</constructor-arg>
-	</bean>
-
 	<!-- Transactions driven by annotations -->
 	<tx:annotation-driven />
 
@@ -77,9 +71,8 @@
 	</bean>
 
 	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="packagesToScan" value="com.gl.subway.domain" />
-		<property name="persistenceUnitName" value="persistence-unit" />
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">		
+		<property name="packagesToScan" value="com.gl.subway.domain" />		
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter" ref="jpaVendor" />
 		<property name="jpaProperties">

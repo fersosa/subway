@@ -1,6 +1,7 @@
 package com.gl.subway.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -13,6 +14,6 @@ public class Ciudad extends AbstractIdentificable {
 
 	@NotEmpty
 	private String nombre;
-	
+	@Transient
 	private Provincia provincia;
 }

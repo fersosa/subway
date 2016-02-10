@@ -28,7 +28,7 @@
 
 	<New id="dburl" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/url</Arg>
-		<Arg type="java.lang.String">mysql://subway:todo@localhost:3306/subway</Arg>
+		<Arg type="java.lang.String">mysql://subway:subway@localhost:3306/subway</Arg>
 	</New>
 	
 	<New id="dbuser" class="org.eclipse.jetty.plus.jndi.EnvEntry">
@@ -38,7 +38,7 @@
 	
 	<New id="dbpass" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/password</Arg>
-		<Arg type="java.lang.String">todo</Arg>
+		<Arg type="java.lang.String">subway</Arg>
 	</New>
 	<!-- FIN CONFIGURACION MySQL -->
 

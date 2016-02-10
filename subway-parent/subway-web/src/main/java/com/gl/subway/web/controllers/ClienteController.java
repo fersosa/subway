@@ -10,20 +10,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.gl.subway.domain.Pedido;
-import com.gl.subway.services.PedidoServices;
+import com.gl.subway.domain.Cliente;
+import com.gl.subway.repository.ClienteRepository;
 
 @Controller
-@RequestMapping("/pedidos")
-public class PedidoController extends BaseController {
-
+@RequestMapping("/clientes")
+public class ClienteController {
+	
 	@Autowired
-	private PedidoServices pedidoServices;
-
+	private ClienteRepository clienteServices;
+	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public List<Pedido> list() {
-		return pedidoServices.list();
+	public List<Cliente> list() {
+		return clienteServices.list();			
 	}
+
 }
