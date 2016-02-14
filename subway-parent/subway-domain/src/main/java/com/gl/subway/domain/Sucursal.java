@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -13,6 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.gl.subway.domain.base.AbstractIdentificable;
 
 @Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = "codigo") })
 public class Sucursal extends AbstractIdentificable {
 
 	private static final long serialVersionUID = -5056544434409243469L;
