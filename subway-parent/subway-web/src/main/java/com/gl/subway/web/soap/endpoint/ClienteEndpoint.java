@@ -26,7 +26,13 @@ public class ClienteEndpoint {
 		cliente.setApellido(request.getApellido());
 		cliente.setEmail(request.getEmail());
 		cliente.setNombre(request.getNombre());
-		// cliente.setSucursalCercana();
+
+		try {
+			clienteServices.asignarSucursal(cliente, request.getCodigoSucursal());
+		} catch (Exception ex) {
+			throw new IllegalArgumentException("CodigoSucursal no valido");
+		}
+
 		return buildResponse(clienteServices.saveCliente(cliente));
 	}
 
@@ -36,6 +42,7 @@ public class ClienteEndpoint {
 		responseCliente.setApellido(cliente.getApellido());
 		responseCliente.setNombre(cliente.getNombre());
 		responseCliente.setEmail(cliente.getEmail());
+		responseCliente.setCodigoSucursal(cliente.getSucursalCercana().getCodigo());
 		RegistrarClienteResponse response = new RegistrarClienteResponse();
 		response.setCliente(responseCliente);
 		return response;

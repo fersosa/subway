@@ -94,4 +94,10 @@ public class Promocion extends AbstractIdentificable {
 		this.sucursal = sucursal;
 	}
 
+	@Override
+	public String toString() {
+		return "Promocion [descuento=" + descuento + ", cantidadMin=" + cantidadMin + ", cantidadMax=" + cantidadMax
+				+ ", desde=" + desde + ", hasta=" + hasta + ", producto=" + producto + ", sucursal=" + sucursal + "]";
+	}
+
 }

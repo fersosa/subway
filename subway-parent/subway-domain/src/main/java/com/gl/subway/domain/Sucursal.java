@@ -72,4 +72,10 @@ public class Sucursal extends AbstractIdentificable {
 	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
 	}
+
+	@Override
+	public String toString() {
+		return "Sucursal [codigo=" + codigo + ", calle=" + calle + ", altura=" + altura + ", ciudad=" + ciudad + "]";
+	}
+
 }

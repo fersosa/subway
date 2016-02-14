@@ -37,4 +37,10 @@ public class Ciudad extends AbstractIdentificable {
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
 	}
+
+	@Override
+	public String toString() {
+		return "Ciudad [nombre=" + nombre + ", provincia=" + provincia + "]";
+	}
+
 }

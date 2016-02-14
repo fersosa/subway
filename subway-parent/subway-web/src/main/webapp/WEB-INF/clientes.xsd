@@ -10,6 +10,7 @@
                 <xs:element name="nombre" type="xs:string"/>
                 <xs:element name="apellido" type="xs:string"/>
                 <xs:element name="email" type="xs:string"/>
+                <xs:element name="codigoSucursal" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -28,6 +29,7 @@
             <xs:element name="nombre" type="xs:string"/>
             <xs:element name="apellido" type="xs:string"/>
             <xs:element name="email" type="xs:string"/>
+            <xs:element name="codigoSucursal" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

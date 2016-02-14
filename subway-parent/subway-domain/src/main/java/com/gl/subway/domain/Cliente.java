@@ -62,4 +62,10 @@ public class Cliente extends AbstractIdentificable {
 		this.sucursalCercana = sucursalCercana;
 	}
 
+	@Override
+	public String toString() {
+		return "Cliente [nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", sucursalCercana="
+				+ sucursalCercana + "]";
+	}
+
 }

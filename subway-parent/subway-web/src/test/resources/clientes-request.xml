@@ -7,6 +7,7 @@
          <gs:nombre>Fernando</gs:nombre>
          <gs:apellido>Sosa</gs:apellido>
          <gs:email>fernando.sosa@globallogic.com</gs:email>
+         <gs:codigoSucursal>SM1</gs:codigoSucursal>
       </gs:registrarClienteRequest>
    </soapenv:Body>
 </soapenv:Envelope>

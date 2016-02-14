@@ -1,10 +1,11 @@
 package com.gl.subway.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 
-public class Pedido {
+public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = -5220170627078630334L;
 
@@ -57,6 +58,12 @@ public class Pedido {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Pedido [id=" + id + ", fechaHora=" + fechaHora + ", sucursal=" + sucursal + ", producto=" + producto
+				+ ", email=" + email + "]";
 	}
 
 }
