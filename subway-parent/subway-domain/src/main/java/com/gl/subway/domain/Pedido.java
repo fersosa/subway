@@ -2,18 +2,21 @@ package com.gl.subway.domain;
 
 import java.util.Date;
 
-import com.gl.subway.domain.base.AbstractIdentificable;
+import org.springframework.data.annotation.Id;
 
-public class Pedido extends AbstractIdentificable {
+public class Pedido {
 
 	private static final long serialVersionUID = -5220170627078630334L;
+
+	@Id
+	private String id;
 
 	private Date fechaHora;
 
 	private String sucursal;
-	
+
 	private String producto;
-	
+
 	private String email;
 
 	public Date getFechaHora() {
@@ -47,6 +50,13 @@ public class Pedido extends AbstractIdentificable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 }

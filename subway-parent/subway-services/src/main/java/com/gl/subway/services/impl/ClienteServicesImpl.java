@@ -1,7 +1,5 @@
 package com.gl.subway.services.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,15 +14,9 @@ public class ClienteServicesImpl implements ClienteServices {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
-	
-	@Override
-	public void saveCliente(Cliente cliente) {
-		clienteRepository.saveUpdate(cliente);
-	}
 
 	@Override
-	public List<Cliente> list() {
-		return clienteRepository.list();
+	public Cliente saveCliente(Cliente cliente) {
+		return clienteRepository.save(cliente);
 	}
-
 }

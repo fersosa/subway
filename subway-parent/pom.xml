@@ -19,14 +19,12 @@
 		<spring-data-mongodb.version>1.8.2.RELEASE</spring-data-mongodb.version> 
 		<slf4j.version>1.6.1</slf4j.version>
 		<log4j.version>1.2.16</log4j.version>
-		<hsqldb.version>2.2.8</hsqldb.version>
-		<hibernate-entitymanager.version>3.4.0.GA</hibernate-entitymanager.version>
-		<hibernate-validator.version>4.0.1.GA</hibernate-validator.version>
+		<hibernate-entitymanager.version>4.3.11.Final</hibernate-entitymanager.version>
+		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
 		<xbean-spring.version>3.7</xbean-spring.version>
 		<jackson.version>2.2.2</jackson.version>
-		<dumbster.version>1.6</dumbster.version>
-		<guava.version>15.0</guava.version>
 		<commons-lang3.version>3.1</commons-lang3.version>
+		<spring-data-jpa.version>1.9.2.RELEASE</spring-data-jpa.version>
 	</properties>
 
 	<!-- Las dependencias de Spring que tiene Spring Security las declaro vía dependencyManagement
@@ -163,13 +161,6 @@
 			<version>1.1</version>
 		</dependency>		
 --> 		
-
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava.version}</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>

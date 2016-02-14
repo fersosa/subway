@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:gs="http://gl.com/subway/web/soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:registrarClienteRequest>
+         <gs:nombre>Fernando</gs:nombre>
+         <gs:apellido>Sosa</gs:apellido>
+         <gs:email>fernando.sosa@globallogic.com</gs:email>
+      </gs:registrarClienteRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

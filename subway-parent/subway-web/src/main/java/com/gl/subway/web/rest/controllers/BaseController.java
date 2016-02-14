@@ -1,4 +1,4 @@
-package com.gl.subway.web.controllers;
+package com.gl.subway.web.rest.controllers;
 
 import java.io.PrintWriter;
 
