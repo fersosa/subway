@@ -16,7 +16,7 @@
 		<jre.version>1.6</jre.version>
 		<wtp.version>2.0</wtp.version>
 		<spring.version>4.2.4.RELEASE</spring.version>
-		<spring-data-mongodb.version>1.8.2.RELEASE</spring-data-mongodb.version> 
+		<spring-data-releasetrain.version>Gosling-SR2A</spring-data-releasetrain.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<log4j.version>1.2.16</log4j.version>
 		<hibernate-entitymanager.version>4.3.11.Final</hibernate-entitymanager.version>
@@ -27,8 +27,8 @@
 		<spring-data-jpa.version>1.9.2.RELEASE</spring-data-jpa.version>
 	</properties>
 
-	<!-- Las dependencias de Spring que tiene Spring Security las declaro vía dependencyManagement
-		 para asegurar la version de Spring que se termina utilizando -->
+	<!-- Las dependencias de Spring que tiene Spring Security las declaro vía 
+		dependencyManagement para asegurar la version de Spring que se termina utilizando -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -66,6 +66,13 @@
 				<artifactId>spring-expression</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-releasetrain</artifactId>
+				<version>${spring-data-releasetrain.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -91,7 +98,15 @@
 			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+		</dependency>
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -113,22 +128,22 @@
 
 		<!-- Json Support -->
 		<dependency>
-		  <groupId>com.fasterxml.jackson.core</groupId>
-		  <artifactId>jackson-annotations</artifactId>
-		  <version>${jackson.version}</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.fasterxml.jackson.core</groupId>
-		  <artifactId>jackson-core</artifactId>
-		  <version>${jackson.version}</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.fasterxml.jackson.core</groupId>
-		  <artifactId>jackson-databind</artifactId>
-		  <version>${jackson.version}</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -154,22 +169,15 @@
 			<scope>runtime</scope>
 		</dependency>
 
-<!-- Estaba porobando para ver si podía re		
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>apache-log4j-extras</artifactId>
-			<version>1.1</version>
-		</dependency>		
---> 		
+		<!-- Estaba porobando para ver si podía re <dependency> <groupId>log4j</groupId> 
+			<artifactId>apache-log4j-extras</artifactId> <version>1.1</version> </dependency> -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons-lang3.version}</version>
 			<scope>test</scope>
 		</dependency>
-            		
 
-		
 	</dependencies>
 
 	<modules>

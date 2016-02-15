@@ -41,6 +41,21 @@
 		<Arg type="java.lang.String">subway</Arg>
 	</New>
 	<!-- FIN CONFIGURACION MySQL -->
+	
+	<!-- MONGODB -->
+	<New id="mongohost" class="org.eclipse.jetty.plus.jndi.EnvEntry">
+		<Arg>mongo/host</Arg>
+		<Arg type="java.lang.String">localhost</Arg>
+	</New>
+	<New id="mongodbname" class="org.eclipse.jetty.plus.jndi.EnvEntry">
+		<Arg>mongo/dbname</Arg>
+		<Arg type="java.lang.String">pedidos</Arg>
+	</New>
+	<New id="mongoport" class="org.eclipse.jetty.plus.jndi.EnvEntry">
+		<Arg>mongo/port</Arg>
+		<Arg type="java.lang.Integer">27017</Arg>
+	</New>
+	<!-- FIN CONFIGURACION MONGODB -->
 
 </Configure>
 

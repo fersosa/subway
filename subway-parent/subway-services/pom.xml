@@ -14,7 +14,6 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>com.gl.subway</groupId>
 			<artifactId>subway-domain</artifactId>
@@ -31,11 +30,6 @@
 		</dependency>
 
 		<!-- PERSISTENCE -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -97,11 +91,6 @@
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
 			<version>1.6.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring-data-jpa.version}</version>
 		</dependency>
 	</dependencies>
 
