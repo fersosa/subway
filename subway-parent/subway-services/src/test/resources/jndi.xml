@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-    
-    <bean id="jndi" class="org.apache.xbean.spring.jndi.DefaultContext" >
-        <property name="entries">
-            <map>
-                <entry key="java:comp/env/subway/url" value="http://localhost:8080/subway-web/backbone/index.html" />
-                <entry key="java:comp/env/db/hbmDialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 
+	<bean id="jndi" class="org.apache.xbean.spring.jndi.DefaultContext">
+		<property name="entries">
+			<map>
+				<entry key="java:comp/env/db/hbmDialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 
-	            <entry key="java:comp/env/db/type" value="MYSQL" />
-	            <entry key="java:comp/env/db/jdbcDriver" value="com.mysql.jdbc.Driver"/>
-	            <entry key="java:comp/env/db/url" value="mysql://subway:todo@localhost:3306/subway"/>
-	            <entry key="java:comp/env/db/user" value="subway"/>
-	            <entry key="java:comp/env/db/password" value="todo"/>
-                <entry key="java:comp/env/db/showSql" value="true"/>
-            </map>
-        </property>
-    </bean>
+				<entry key="java:comp/env/db/type" value="MYSQL" />
+				<entry key="java:comp/env/db/jdbcDriver" value="com.mysql.jdbc.Driver" />
+				<entry key="java:comp/env/db/url" value="mysql://subway:subway@localhost:3306/subway" />
+				<entry key="java:comp/env/db/user" value="subway" />
+				<entry key="java:comp/env/db/password" value="subway" />
+				<entry key="java:comp/env/db/showSql" value="true" />
+
+				<entry key="java:comp/env/mongo/host" value="localhost" />
+				<entry key="java:comp/env/mongo/port" value="27017" />
+				<entry key="java:comp/env/mongo/dbname" value="pedidos" />
+			</map>
+		</property>
+	</bean>
 
 </beans>

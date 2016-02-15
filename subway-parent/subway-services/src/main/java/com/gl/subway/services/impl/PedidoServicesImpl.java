@@ -2,6 +2,8 @@ package com.gl.subway.services.impl;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,12 +43,12 @@ public class PedidoServicesImpl implements PedidoServices {
 	public Pedido registrar(PedidoNuevo pedidoNuevo) {
 
 		if (productoRespository.countByCodigo(pedidoNuevo.getProducto()) == 0) {
-			throw new IllegalArgumentException("Codigo Producto desconocido");
+			throw new EntityNotFoundException("Codigo Producto desconocido");
 		}
 
 		Cliente cliente = clienteRepository.findByEmail(pedidoNuevo.getEmail());
 		if (cliente == null) {
-			throw new IllegalArgumentException("Email Cliente desconocido");
+			throw new EntityNotFoundException("Email Cliente desconocido");
 		}
 
 		Promocion promocion = promocionRepository.findByProductoAndSucursal(
