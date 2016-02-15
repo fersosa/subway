@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://gl.com/subway/web/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://gl.com/subway/web/soap" targetNamespace="http://gl.com/subway/web/soap">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://gl.com/subway/web/soap">
+
+    <xs:element name="registrarClienteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="apellido" type="xs:string"/>
+                <xs:element name="email" type="xs:string"/>
+                <xs:element name="codigoSucursal" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="registrarClienteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:cliente"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="cliente">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="apellido" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="codigoSucursal" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="registrarClienteRequest">
+    <wsdl:part element="tns:registrarClienteRequest" name="registrarClienteRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registrarClienteResponse">
+    <wsdl:part element="tns:registrarClienteResponse" name="registrarClienteResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Clientes">
+    <wsdl:operation name="registrarCliente">
+      <wsdl:input message="tns:registrarClienteRequest" name="registrarClienteRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:registrarClienteResponse" name="registrarClienteResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClientesSoap11" type="tns:Clientes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="registrarCliente">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="registrarClienteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registrarClienteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientesService">
+    <wsdl:port binding="tns:ClientesSoap11" name="ClientesSoap11">
+      <soap:address location="http://localhost:8080/clientesService/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
