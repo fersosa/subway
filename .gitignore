@@ -5,15 +5,6 @@
 *.war
 *.ear
 
-# Eclipse Files #
-.classpath
-.project
-*.prefs
-*.component
-*.core.xml
-.externalToolBuilders
-
-
 # Logs #
 *.log*
 
