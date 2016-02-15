@@ -1,22 +1,15 @@
 package com.gl.subway.dto;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PedidoNuevo implements Serializable {
 
-	private static final long serialVersionUID = -4164725949430771885L;
+	private static final long serialVersionUID = -5083136465645217672L;
 
-	private String producto;
+	private Map<String, Integer> productoCantidad;
 	private String email;
-	private int cantidad;
-
-	public String getProducto() {
-		return producto;
-	}
-
-	public void setProducto(String producto) {
-		this.producto = producto;
-	}
 
 	public String getEmail() {
 		return email;
@@ -26,16 +19,11 @@ public class PedidoNuevo implements Serializable {
 		this.email = email;
 	}
 
-	public int getCantidad() {
-		return cantidad;
+	public Map<String, Integer> getProductoCantidad() {
+		return new HashMap<String, Integer>(productoCantidad);
 	}
 
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
-	}
-
-	@Override
-	public String toString() {
-		return "PedidoNuevo [producto=" + producto + ", email=" + email + ", cantidad=" + cantidad + "]";
+	public void setProductoCantidad(Map<String, Integer> productoCantidad) {
+		this.productoCantidad = new HashMap<String, Integer>(productoCantidad);
 	}
 }

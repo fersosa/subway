@@ -22,15 +22,30 @@ baseUriParameters:
               [
                 {
                   "id": "1",
-                  "producto": "p1",
+                  "productoCantidad": 
+                  {
+                  	"p1": 1,
+                  	"p2": 3
+                  },
                   "sucursal": "s1",
-                  "email": "cliente1@mail.com"
+                  "email": "cliente1@mail.com",
+                  "promociones": [
+                    "promo1",
+                    "promo2"
+                  ]
                 },
                 {
                   "id": "2",
-                  "producto": "p2",
-                  "sucursal": "s2",
-                  "email": "cliente2@mail.com"
+                  "productoCantidad": 
+                  {
+                  	"p4": 2,
+                  	"p5": 6
+                  },
+                  "sucursal": "s1",
+                  "email": "cliente2@mail.com",
+                  "promociones": [
+                    "promo3"
+                  ]
                 }
               ]
   post:
@@ -52,16 +67,15 @@ schemas:
         "id": "http://jsonschema.net",
         "required": true,
         "properties": {
-          "producto": {
-            "type": "string",
+          "productoCantidad": {
+            "type": "object",
+            "patternProperties": {
+              ".{1,}": { "type": "integer" }
+            },
             "required": true
           },
           "email": {
             "type": "string",
-            "required": true
-          },
-          "cantidad": {
-            "type": "integer",
             "required": true
           }
         }
@@ -77,25 +91,26 @@ schemas:
             "type": "integer",
             "required": true
           },
-          "producto": {
-            "type": "string",
+          "productoCantidad": {
+            "type": "object",
+            "patternProperties": {
+              ".{1,}": { "type": "integer" }
+            },
             "required": true
           },
           "email": {
             "type": "string",
             "required": true
           },
-          "cantidad": {
-            "type": "integer",
-            "required": true
-          },
           "sucursal": {
             "type": "string",
             "required": true
           },
-          "promocion": {
-            "type": "string",
-            "required": false
+          "promociones": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "uniqueItems": true
           }
         }
       }

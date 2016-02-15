@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.apache.commons.collections4.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,8 +43,14 @@ public class PedidoServicesImpl implements PedidoServices {
 	@Override
 	public Pedido registrar(PedidoNuevo pedidoNuevo) {
 
-		if (productoRespository.countByCodigo(pedidoNuevo.getProducto()) == 0) {
-			throw new EntityNotFoundException("Codigo Producto desconocido");
+		if (MapUtils.isEmpty(pedidoNuevo.getProductoCantidad())) {
+			throw new IllegalArgumentException("Pedido sin productos");
+		}
+
+		for (String producto : pedidoNuevo.getProductoCantidad().keySet()) {
+			if (productoRespository.countByCodigo(producto) == 0) {
+				throw new EntityNotFoundException("Codigo Producto desconocido: " + producto);
+			}
 		}
 
 		Cliente cliente = clienteRepository.findByEmail(pedidoNuevo.getEmail());
@@ -51,13 +58,14 @@ public class PedidoServicesImpl implements PedidoServices {
 			throw new EntityNotFoundException("Email Cliente desconocido");
 		}
 
-		Promocion promocion = promocionRepository.findByProductoAndSucursal(
-				productoRespository.findByCodigo(pedidoNuevo.getProducto()), cliente.getSucursalCercana());
-
 		Pedido pedido = new Pedido(pedidoNuevo);
 
-		if (promocion != null) {
-			pedido.setPromocion(promocion.getCodigo());
+		for (String producto : pedidoNuevo.getProductoCantidad().keySet()) {
+			Promocion promocion = promocionRepository.findByProductoAndSucursal(
+					productoRespository.findByCodigo(producto), cliente.getSucursalCercana());
+			if (promocion != null) {
+				pedido.addPromocion(promocion.getCodigo());
+			}
 		}
 
 		pedido.setSucursal(cliente.getSucursalCercana().getCodigo());

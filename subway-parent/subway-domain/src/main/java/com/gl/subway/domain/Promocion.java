@@ -1,7 +1,5 @@
 package com.gl.subway.domain;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -29,10 +27,6 @@ public class Promocion extends AbstractIdentificable {
 
 	@Min(value = 0)
 	private int cantidadMax;
-
-	private Date desde;
-
-	private Date hasta;
 
 	@NotEmpty
 	private String codigo;
@@ -67,22 +61,6 @@ public class Promocion extends AbstractIdentificable {
 		this.cantidadMax = cantidadMax;
 	}
 
-	public Date getDesde() {
-		return desde;
-	}
-
-	public void setDesde(Date desde) {
-		this.desde = desde;
-	}
-
-	public Date getHasta() {
-		return hasta;
-	}
-
-	public void setHasta(Date hasta) {
-		this.hasta = hasta;
-	}
-
 	public Producto getProducto() {
 		return producto;
 	}
@@ -110,7 +88,6 @@ public class Promocion extends AbstractIdentificable {
 	@Override
 	public String toString() {
 		return "Promocion [descuento=" + descuento + ", cantidadMin=" + cantidadMin + ", cantidadMax=" + cantidadMax
-				+ ", desde=" + desde + ", hasta=" + hasta + ", codigo=" + codigo + ", producto=" + producto
-				+ ", sucursal=" + sucursal + "]";
+				+ ", codigo=" + codigo + ", producto=" + producto + ", sucursal=" + sucursal + "]";
 	}
 }
