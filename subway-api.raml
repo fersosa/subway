@@ -1,0 +1,102 @@
+#%RAML 0.8
+title: Subway API
+baseUri: http://{host}/rest/{version}
+version: v1
+baseUriParameters:
+  host:
+/import:
+  displayName: importar dummy data 
+  get:
+    description: importa dummy data para poder probar los endpoints
+    responses:
+      200:
+/pedidos:
+  displayName: pedidos
+  get:
+    description: recupera lista de todos los pedidos realizados
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "id": "1",
+                  "producto": "p1",
+                  "sucursal": "s1",
+                  "email": "cliente1@mail.com"
+                },
+                {
+                  "id": "2",
+                  "producto": "p2",
+                  "sucursal": "s2",
+                  "email": "cliente2@mail.com"
+                }
+              ]
+  post:
+    description: registra un pedido nuevo
+    body:
+      application/json:
+        schema:  pedidoNuevo          
+    responses:
+      201:
+        body:
+          application/json:
+            schema: pedidoRegistrado
+              
+schemas:
+  - pedidoNuevo: |
+      {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "id": "http://jsonschema.net",
+        "required": true,
+        "properties": {
+          "producto": {
+            "type": "string",
+            "required": true
+          },
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "required": true
+          }
+        }
+      }
+  - pedidoRegistrado: |
+      {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "id": "http://jsonschema.net",
+        "required": true,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "required": true
+          },
+          "producto": {
+            "type": "string",
+            "required": true
+          },
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "required": true
+          },
+          "sucursal": {
+            "type": "string",
+            "required": true
+          },
+          "promocion": {
+            "type": "string",
+            "required": false
+          }
+        }
+      }
+ 

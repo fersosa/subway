@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 
+import com.gl.subway.dto.PedidoNuevo;
+
 public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = -5220170627078630334L;
@@ -19,6 +21,21 @@ public class Pedido implements Serializable {
 	private String producto;
 
 	private String email;
+
+	private String promocion;
+
+	private int cantidad;
+
+	public Pedido() {
+		super();
+	}
+
+	public Pedido(PedidoNuevo pedidoNuevo) {
+		this.cantidad = pedidoNuevo.getCantidad();
+		this.producto = pedidoNuevo.getProducto();
+		this.email = pedidoNuevo.getEmail();
+		this.fechaHora = new Date();
+	}
 
 	public Date getFechaHora() {
 		return fechaHora;
@@ -60,10 +77,26 @@ public class Pedido implements Serializable {
 		this.id = id;
 	}
 
+	public String getPromocion() {
+		return promocion;
+	}
+
+	public void setPromocion(String promocion) {
+		this.promocion = promocion;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
 	@Override
 	public String toString() {
 		return "Pedido [id=" + id + ", fechaHora=" + fechaHora + ", sucursal=" + sucursal + ", producto=" + producto
-				+ ", email=" + email + "]";
+				+ ", email=" + email + ", promocion=" + promocion + ", cantidad=" + cantidad + "]";
 	}
 
 }

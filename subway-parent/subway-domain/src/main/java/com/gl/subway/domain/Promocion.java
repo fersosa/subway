@@ -5,13 +5,17 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.gl.subway.domain.base.AbstractIdentificable;
 
 @Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = "codigo") })
 public class Promocion extends AbstractIdentificable {
 
 	private static final long serialVersionUID = 7967702495872784550L;
@@ -26,11 +30,12 @@ public class Promocion extends AbstractIdentificable {
 	@Min(value = 0)
 	private int cantidadMax;
 
-	@NotNull
 	private Date desde;
 
-	@NotNull
 	private Date hasta;
+
+	@NotEmpty
+	private String codigo;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Producto producto;
@@ -94,10 +99,18 @@ public class Promocion extends AbstractIdentificable {
 		this.sucursal = sucursal;
 	}
 
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
 	@Override
 	public String toString() {
 		return "Promocion [descuento=" + descuento + ", cantidadMin=" + cantidadMin + ", cantidadMax=" + cantidadMax
-				+ ", desde=" + desde + ", hasta=" + hasta + ", producto=" + producto + ", sucursal=" + sucursal + "]";
+				+ ", desde=" + desde + ", hasta=" + hasta + ", codigo=" + codigo + ", producto=" + producto
+				+ ", sucursal=" + sucursal + "]";
 	}
-
 }

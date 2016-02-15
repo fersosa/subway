@@ -6,4 +6,5 @@ import com.gl.subway.domain.Cliente;
 
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
+	Cliente findByEmail(String email);
 }

@@ -4,16 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.gl.subway.domain.Pedido;
+import com.gl.subway.dto.PedidoNuevo;
 import com.gl.subway.services.PedidoServices;
 
-@Controller
+@RestController
 @RequestMapping("/pedidos")
 public class PedidoController extends BaseController {
 
@@ -21,9 +22,14 @@ public class PedidoController extends BaseController {
 	private PedidoServices pedidoServices;
 
 	@RequestMapping(method = RequestMethod.GET)
-	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public List<Pedido> list() {
-		return pedidoServices.list();
+	public List<Pedido> listar() {
+		return pedidoServices.listar();
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
+	public Pedido registrar(@RequestBody PedidoNuevo pedido) {
+		return pedidoServices.registrar(pedido);
 	}
 }
